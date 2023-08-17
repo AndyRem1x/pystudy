@@ -1,2 +1,2 @@
 # pystudy
-Repo for studying python
+Repo for studying python, solving different problems
