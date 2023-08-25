@@ -3,9 +3,9 @@ string = input("Input some string:  ")
 lst = list(string)
 for i in range(5):
     j = 0
-    nstring = ''
+    new_string = ''
     random.shuffle(lst)
     while j < len(lst):
-        nstring += lst[j]
+        new_string += lst[j]
         j += 1
-    print(nstring)
+    print(new_string)
