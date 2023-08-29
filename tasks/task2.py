@@ -1,3 +1,8 @@
+
+first_name = "Andrew"
+last_name = "Kovalyk"
+print("Hello" + ',' + ' ' + first_name + ' ' + last_name + '!')
+
 #hello, world, study, python
 print("hello", "world", "study", "python", sep=', ')
 
@@ -18,7 +23,6 @@ print(" ")
 
 #Veni, Vidi, Vici
 print("Veni", "Vidi", "Vici", sep=", ")
-
 
 
 
