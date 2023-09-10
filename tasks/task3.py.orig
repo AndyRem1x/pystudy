@@ -1,0 +1,29 @@
+<<<<<<< HEAD
+import random
+string = input("Input some string:  ")
+lst = list(string)
+for i in range(5):
+    j = 0
+    new_string = ''
+    random.shuffle(lst)
+    while j < len(lst):
+        new_string += lst[j]
+        j += 1
+    print(new_string)
+=======
+
+a = 13
+b = 5
+print(a + b)  # addtion
+print(a - b)  # subtraction
+print(a / b)  # division
+print(a * b)  # multiplication
+print(a ** b)  # exponent(power)
+print(a % b)  # modulus
+print(a // b)  # floor division
+
+print("#"*9+"\n#\t#\n#\t#\n#\t#\n"+"#"*9)  # \t is 8 spaces by default settings of python interpreter
+print()  #space between 2 letters
+print("#\t#\n#\t#\n"+"#"*9+"\n#\t#\n#\t#")  # \t is 8 spaces by default settings of python interpreter
+
+>>>>>>> 0e22bcef9ea7d492c3d5a17ffc2b8ebb9b5dab01

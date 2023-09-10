@@ -1,0 +1,15 @@
+<<<<<<< HEAD
+from random import randint
+number = randint(1, 10)
+guess = int(input("Guess the number between 1 and 10:  "))
+if guess == number:
+    print("You guessed the number!")
+else:
+    print(f"You didn't guess the number! The right number is {number}.")
+=======
+name = "Andrew"
+day = "Friday"
+print(f"Good day {name}! {day} is a perfect day to learn some python.")  # way 1
+print("Good day {0}! {1} is a perfect day to learn some python.".format(name, day))  # way2
+print("Good day %s! %s is a perfect day to learn some python." % (name, day))  # way 3
+>>>>>>> 0e22bcef9ea7d492c3d5a17ffc2b8ebb9b5dab01
