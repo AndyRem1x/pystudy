@@ -1,0 +1,26 @@
+{
+    "+380975555555": {
+        "first_name": "Andrew",
+        "last_name": "Kovalyk",
+        "full_name": "Kovalyk Andrew",
+        "location": "Vinnytsia"
+    },
+    "+380685555555": {
+        "first_name": "Mykola",
+        "last_name": "Sokoluk",
+        "full_name": "Sokoluk Mykola",
+        "location": "Kyiv"
+    },
+    "+380646646322": {
+        "first_name": "Mike",
+        "last_name": "Evans",
+        "full_name": "Evans Mike",
+        "location": "Rivne"
+    },
+    "+380672122333": {
+        "first_name": "Alex",
+        "last_name": "Klim",
+        "full_name": "Klim Alex",
+        "location": "Lviv"
+    }
+}
