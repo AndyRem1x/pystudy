@@ -3,7 +3,7 @@ def arg_rules(type_: type, max_length: int, contains: list):
         def second_wrapper(name):
             if not (type(name) is type_):
                 return False
-            if not (len(name) <= 15):
+            if not (len(name) <= max_length):
                 return False
             for elem in contains:
                 if not (elem in name):
