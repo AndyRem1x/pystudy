@@ -11,6 +11,6 @@ class CustomException(Exception):
 
 
 try:
-    raise CustomException("This is a message!")
+    raise CustomException("This is a message.")
 except CustomException as ce:
     print(f"Caught CustomException: {ce}")
