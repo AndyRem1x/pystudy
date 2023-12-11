@@ -14,20 +14,15 @@ mock_file = os.path.join(current_dir, "mock", "phonebook_mock_data.json")
 
 
 class PhoneBook:
-    """Phonebook class"""
-
     def __init__(self, file_path, temp_file_path, mock_file_path=None):
         self.file_path = file_path
         self.temp_path = temp_file_path
         self.mock_path = mock_file_path
-
-        # Initialization for empty phonebook file
         if not os.path.exists(self.file_path):
             with open(self.file_path, "w", encoding="UTF-8") as file:
                 file.write("{}")
 
     def open_file(self):
-        """Open phonebook file to read"""
         try:
             with open(self.file_path, "r", encoding="UTF_8") as book_file:
                 return json.load(book_file)
@@ -36,11 +31,9 @@ class PhoneBook:
         return None
 
     def create_backup_file(self):
-        """Create backup file"""
         os.replace(self.file_path, self.temp_path)
 
     def backup_phonebook(self, backup_file=None):
-        """Rewrite phonebook file from backup file"""
         try:
             with open(backup_file, "r", encoding="UTF_8") as file_obj:
                 temp_data = json.load(file_obj)
@@ -52,7 +45,6 @@ class PhoneBook:
             return False
 
     def save_phonebook_to_file(self, phonebook):
-        """Convert object phonebook to json format and save it to file"""
         try:
             with open(self.file_path, "w", encoding="UTF_8") as book_file:
                 json.dump(phonebook, book_file, indent=4)
@@ -61,7 +53,6 @@ class PhoneBook:
             self.backup_phonebook(self.temp_path)
 
     def show_all(self):
-        """Show all entries in phonebook"""
         try:
             with open(self.file_path, "r", encoding="UTF_8") as book_file:
                 print(book_file.read())
@@ -69,10 +60,6 @@ class PhoneBook:
             print(f'Error! File with name "{self.file_path}" not found!')
 
     def add(self, contact_details):
-        """
-        Add new entries.
-        Return True if operation completed successful, and False in another case.
-        """
         phonebook = self.open_file()
 
         if contact_details["phone"] in phonebook:
@@ -82,27 +69,18 @@ class PhoneBook:
             operation_code = input("Do you want to update this data? (y/n): ")
             if not operation_code == "y":
                 return False
-
-        # create new contact
         phonebook[f"{contact_details['phone']}"] = {
             "first_name": contact_details["first_name"],
             "last_name": contact_details["last_name"],
             "location": contact_details["location"],
         }
-
-        # create backup file
         self.create_backup_file()
-
-        # update phonebook
         self.save_phonebook_to_file(phonebook)
-
         return True
 
     def search_by(self, key, value):
-        """Search contact by key and its value"""
         phonebook = self.open_file()
         contacts = []
-
         match key:
             case "phone":
                 if value not in phonebook:
@@ -125,40 +103,23 @@ class PhoneBook:
                         data["phone"] = contact
                         contacts.append(data)
                     continue
-
         return contacts if len(contacts) > 0 else None
 
     def update_by_phone(self, phone, new_data):
-        """
-        Update a record for a given telephone number.
-        Return True if operation completed successful, and False in another case.
-        """
         phonebook = self.open_file()
-
         if phone not in phonebook:
             print(f"Contact with phone number {phone} not found.")
             return False
-
-        # update data
         phonebook[f"{phone}"] = {
             "first_name": new_data["first_name"],
             "last_name": new_data["last_name"],
             "location": new_data["location"],
         }
-
-        # create backup file
         self.create_backup_file()
-
-        # update phonebook
         self.save_phonebook_to_file(phonebook)
-
         return True
 
     def delete_by_phone(self, phone):
-        """
-        Delete a record for a given telephone number
-        Return True if operation completed successful, and False in another case.
-        """
         phonebook = self.open_file()
         if phone not in phonebook:
             print(f"Contact with phone number {phone} not found!")
@@ -168,8 +129,6 @@ class PhoneBook:
         return True
 
     def interface(self):
-        """Main function loop"""
-
         while True:
             print(
                 "\n",
@@ -188,7 +147,6 @@ class PhoneBook:
                 sep="\n",
             )
             operation_code = input("Enter the code: ")
-
             match operation_code:
                 case "1":
                     contact_details = {}
